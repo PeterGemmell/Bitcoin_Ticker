@@ -21,7 +21,7 @@ class Body extends React.Component{
             initValue: 0,
             dataSource : {
                 "chart": {
-                    "caption": "Bitcoin Ticker",
+                    "caption": "Bitcoin Ticker", // This is the data source required to render the real-time chart.
                     "subCaption": "",
                     "xAxisName": "Local Time",
                     "yAxisName": "GBP",
@@ -46,7 +46,7 @@ class Body extends React.Component{
                 }]
             }
         };
-        this.chartConfigs = {
+        this.chartConfigs = { // The type of data we want to pass to the chart object, in this case JSON, is defined using dataFormat.
             type: 'realtimeline',
             renderAt: 'container',
             width: '100%',
@@ -54,13 +54,15 @@ class Body extends React.Component{
             dataFormat: 'json'
         };
     }
-
+//using this function to obtain the cryptocurrency values.
     componentDidMount() {
         this.getDataFor('btc-gbp', 'btcgbp');
         this.getDataFor('ltc-gbp', 'ltcgbp');
         this.getDataFor('eth-gbp', 'ethgbp');
     }
-
+// The Base URL + conversion(btc-usd/eth-usd/ltc-usd) fetches the Cryptonator API and d.ticker.price returns the price of the cryptocurrency.
+// For Bitcoin, the ticker is plotted against Local Time in the x-axis vs Price in USD in the Y-axis. To obtain the timestamp, the function clientDateTime() is used.
+// feedData() method provided by FusionCharts is used to feed data into the chart.
     startUpdatingData(){
         setInterval(() => {
             fetch(this.BASE_URL + 'btc-gbp')
