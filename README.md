@@ -13,7 +13,7 @@ The app is built using:
 ##### Front-end (client)
 * download Bitcoin_Ticker
 * in terminal, navigate to Bitcoin_Ticker
-* cd into local_ice_creams
+* cd into bitcoin_ticker
 * npm install
 * npm start
 * The application will run on http://localhost:3000/
