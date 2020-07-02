@@ -17,3 +17,5 @@ The app is built using:
 * npm install
 * npm start
 * The application will run on http://localhost:3000/
+
+![Imgur](https://i.imgur.com/H2KjAZY.png)
